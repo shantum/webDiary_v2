@@ -1,3 +1,32 @@
-// Place all the styles related to the user_links controller here.
+// Place all the styles related to the UserLinks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#user_links_new_input {
+  width: 30%;
+  margin-left: 1.5%;
+}
+
+#user_links_new_button {
+  margin-top: 1%;
+  margin-left: 1.5%;
+}
+
+#user-links-index-each {
+  border-style: solid;
+  margin-bottom: 5px;
+  margin-left: 1%;
+  padding: 5px;
+}
+
+#user-links-index-container {
+  margin-left: 1% ;
+  padding: 1% ;
+}
+
+#user-links-index-each-title {
+  font-weight: bold;
+}
+
+#user-links-new-form {
+  margin-top: 2%;
+}
