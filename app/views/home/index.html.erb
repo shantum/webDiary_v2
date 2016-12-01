@@ -7,27 +7,7 @@
   <% if @recent_links %>
       <div class="row">
         <% @recent_links.each do |link| %>
-            <div class="col-sm-8" id="home-user-links-each">
-
-              <p id="home-user-links-each-title">Title: <%= link.link.title %></p>
-
-              <% if link.link.thumbnail %>
-                  <%= image_tag(link.link.thumbnail) %>
-              <% end %>
-              <br>
-              <% if link.link.embed_code %>
-                  <%= link.link.embed_code.html_safe %>
-              <% end %>
-              <br>
-              <%= link_to('Click here to go to the link', link.link.url) %>
-              <br>
-              <br>
-              <p>Media Type: <%= link.link.group %></p>
-              <br>
-              <p>Category: <%= link.category %></p>
-              <br>
-
-            </div>
+            <%= render 'partials/link_card', link: link %>
         <% end %>
       </div>
   <% end %> <%#show recent links %>

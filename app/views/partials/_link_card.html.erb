@@ -1,8 +1,16 @@
-<div class="card">
-  <img class="card-img-top" src="..." alt="Card image cap">
-  <div class="card-block">
-    <h4 class="card-title"><%= @link.link.title %></h4>
-    <p class="card-text"><%= @link.link.description %></p>
-    <a href="<%= @link.link.url %>" class="btn btn-primary">Go to Link</a>
+ <div class="col-xs-4 link_card">
+    <div class="thumbnail">
+      <% if link.link.embed_code %>
+          <div class="embedded_video">
+            <%= link.link.embed_code.html_safe %>
+          </div>
+      <% else %>
+          <img class='link_card_thumbnail' src="<%= link.link.thumbnail %>">
+      <%end%>
+      <div class="caption">
+        <h3><%= link.link.title %></h3>
+        <p class="text-justify"><%= link.link.description.first(200) %>...</p>
+        <p><a href="<%= link.link.url %>" class="btn btn-primary" role="button" target="_blank">View Link</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+      </div>
+    </div>
   </div>
-</div>
