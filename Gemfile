@@ -35,6 +35,8 @@ gem 'yt'
 gem 'validate_url'
 # To parse websites
 gem 'metainspector'
+# Bootstrap
+gem 'bootstrap-sass', '~> 3.3.6'
 
 
 # Use Capistrano for deployment
