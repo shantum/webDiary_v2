@@ -109,20 +109,20 @@
       <DataType>DATETIME(0,-1)|12</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="32" parent="7" name="users_id">
+    <column id="32" parent="7" name="user_id">
       <Position>4</Position>
       <DataType>INTEGER(0,-1)|4</DataType>
     </column>
-    <column id="33" parent="7" name="links_id">
+    <column id="33" parent="7" name="link_id">
       <Position>5</Position>
       <DataType>INTEGER(0,-1)|4</DataType>
     </column>
-    <index id="34" parent="7" name="index_user_links_on_users_id">
-      <ColNames>users_id</ColNames>
+    <index id="34" parent="7" name="index_user_links_on_user_id">
+      <ColNames>user_id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="35" parent="7" name="index_user_links_on_links_id">
-      <ColNames>links_id</ColNames>
+    <index id="35" parent="7" name="index_user_links_on_link_id">
+      <ColNames>link_id</ColNames>
       <Unique>1</Unique>
     </index>
     <key id="36" parent="7">

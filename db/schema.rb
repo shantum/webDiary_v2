@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161201143842) do
+ActiveRecord::Schema.define(version: 20161201150033) do
 
   create_table "links", force: :cascade do |t|
     t.datetime "created_at",  null: false
@@ -27,10 +27,10 @@ ActiveRecord::Schema.define(version: 20161201143842) do
     t.string   "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "users_id"
-    t.integer  "links_id"
-    t.index ["links_id"], name: "index_user_links_on_links_id"
-    t.index ["users_id"], name: "index_user_links_on_users_id"
+    t.integer  "user_id"
+    t.integer  "link_id"
+    t.index ["link_id"], name: "index_user_links_on_link_id"
+    t.index ["user_id"], name: "index_user_links_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

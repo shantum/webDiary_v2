@@ -1,0 +1,8 @@
+<%= form_tag('/user_links/create', method: 'post') do %>
+    <div class="form-group" id="user-links-new-form">
+      <span>
+        <%= text_field_tag(:url, nil, class: 'form-control', placeholder: 'Add a new link!', type: 'url', id: 'user_links_new_input') %>
+        <%= submit_tag('Search', class: 'btn btn-default', id: 'user_links_new_button') %>
+      </span>
+    </div>
+<% end %>

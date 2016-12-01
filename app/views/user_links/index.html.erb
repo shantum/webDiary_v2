@@ -1,0 +1,33 @@
+<div class="container" id="user-links-index-container">
+  <h2>Your links so far:</h2>
+
+  <div class="row">
+    <% @user_links.each do |link| %>
+        <div class="col-sm-8" id="user-links-index-each">
+
+          <p id="user-links-index-each-title">Title: <%= link.link.title %></p>
+
+          <% if link.link.thumbnail %>
+            <%= image_tag(link.link.thumbnail) %>
+          <% end %>
+          <br>
+          <% if link.link.embed_code %>
+              <%= link.link.embed_code.html_safe %>
+          <% end %>
+          <br>
+          <%= link_to('Click here to go to the link', link.link.url) %>
+          <br>
+          <br>
+          <p>Media Type: <%= link.link.group %></p>
+          <br>
+          <p>Category: <%= link.category %></p>
+          <br>
+          <%= link_to "View", user_link_view_url(link) %>
+
+          <%= link_to "Edit", user_link_edit_url(link) %>
+
+          <%= link_to('Delete Entry', user_link_delete_url(link), method: :post) %>
+        </div>
+    <% end %>
+  </div>
+</div>

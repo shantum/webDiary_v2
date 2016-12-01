@@ -1,0 +1,21 @@
+
+<div class="container" id="user-links-index-container">
+  <% if flash[:notice] %>
+      <div class="notice"><%= flash[:notice] %></div>
+  <% end %>
+
+    <div class="row">
+        <div class="col-sm-8" id="user-links-index-each">
+          <p id="user-links-index-each-title">Title: <%= @user_link.link.title %></p>
+          <%= image_tag(@user_link.link.thumbnail) %>
+          <% if @user_link.link.embed_code %>
+              <%= @user_link.link.embed_code.html_safe %>
+          <% end %>
+          <p>Media Type: <%= @user_link.link.group %></p>
+          <p>Category: <%= @user_link.category %></p>
+          <%= link_to "View", user_link_view_url(@user_link) %>
+          <%= link_to "Edit", user_link_edit_url(@user_link) %>
+          <%= link_to('Delete Entry', user_link_delete_url(@user_link), method: :post) %>
+        </div>
+    </div>
+</div>
