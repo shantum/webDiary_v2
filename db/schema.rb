@@ -10,7 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161201141153) do
+ActiveRecord::Schema.define(version: 20161201143842) do
+
+  create_table "links", force: :cascade do |t|
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "url"
+    t.string   "title"
+    t.string   "description"
+    t.string   "group"
+    t.string   "embed_code"
+    t.string   "thumbnail"
+  end
+
+  create_table "user_links", force: :cascade do |t|
+    t.string   "category"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "users_id"
+    t.integer  "links_id"
+    t.index ["links_id"], name: "index_user_links_on_links_id"
+    t.index ["users_id"], name: "index_user_links_on_users_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
