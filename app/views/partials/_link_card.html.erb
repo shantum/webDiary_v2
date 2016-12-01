@@ -7,8 +7,8 @@
       <% else %>
           <img class='link_card_thumbnail' src="<%= link.link.thumbnail %>">
       <%end%>
-      <div class="caption">
-        <h3><%= link.link.title %></h3>
+      <div class="caption link_card_caption_div">
+        <h3 class="text-justify link_card_title"><%= link.link.title.first(100) %></h3>
         <p class="text-justify"><%= link.link.description.first(200) %>...</p>
         <p><a href="<%= link.link.url %>" class="btn btn-primary" role="button" target="_blank">View Link</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
       </div>
