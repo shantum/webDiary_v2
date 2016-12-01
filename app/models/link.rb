@@ -1,7 +1,6 @@
 class Link < ApplicationRecord
   has_many :user_links
   before_validation :fill_data
-  require 'open-uri'
   validates_presence_of :url, :title, :description, :group
   require 'open-uri'
   Yt.configuration.api_key = "AIzaSyCJDSSvbe4lz8h-ZWW6bYxQGkJBD6N5ltE"
