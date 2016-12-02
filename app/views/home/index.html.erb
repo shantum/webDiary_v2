@@ -1,14 +1,19 @@
-<h3 id="home-welcome-title">Welcome to your webDiary</h3>
+
 
 <div class="container" id="home-user-links-container">
 
   <h2>Here are your latest entries:</h2>
-
+  <br>
+  <br>
   <% if @recent_links %>
-      <div class="row">
-        <% @recent_links.each do |link| %>
-            <%= render 'partials/link_card', link: link %>
-        <% end %>
+      <div class="container">
+        <div class="card-deck-wrapper">
+          <div class="card-deck">
+            <% @recent_links.reverse.each do |link| %>
+                <%= render 'partials/link_card', link: link %>
+            <% end %>
+          </div>
+        </div>
       </div>
   <% end %> <%#show recent links %>
 

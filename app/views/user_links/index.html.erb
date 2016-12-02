@@ -1,10 +1,12 @@
 <div class="container" id="user-links-index-container">
   <h2>Your links so far:</h2>
 
-  <div class="row">
-    <% @user_links.each do |link| %>
-        <%= render 'partials/link_card', link: link %>
-    <% end %>
+  <div class="card-deck-wrapper">
+    <div class="card-deck user-links-card-deck">
+      <% @user_links.reverse.each do |link| %>
+          <%= render 'partials/link_card', link: link %>
+      <% end %>
+    </div>
   </div>
 
 </div>

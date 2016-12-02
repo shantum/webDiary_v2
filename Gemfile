@@ -36,7 +36,13 @@ gem 'validate_url'
 # To parse websites
 gem 'metainspector'
 # Bootstrap
-gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootstrap', '~> 4.0.0.alpha5'
+# Tether for bootstrap
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.1.0'
+end
+# Tagging
+gem 'acts-as-taggable-on'
 
 
 # Use Capistrano for deployment

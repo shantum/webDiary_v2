@@ -1,16 +1,28 @@
- <div class="col-xs-4 link_card">
-    <div class="thumbnail">
-      <% if link.link.embed_code %>
-          <div class="embedded_video">
-            <%= link.link.embed_code.html_safe %>
-          </div>
-      <% else %>
-          <img class='link_card_thumbnail' src="<%= link.link.thumbnail %>">
-      <%end%>
-      <div class="caption link_card_caption_div">
-        <h3 class="text-justify link_card_title"><%= link.link.title.first(100) %></h3>
-        <p class="text-justify"><%= link.link.description.first(200) %>...</p>
-        <p><a href="<%= link.link.url %>" class="btn btn-primary" role="button" target="_blank">View Link</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+<div class="card user-link-card-div">
+  <% if link.link.embed_code %>
+      <div class="embed-responsive embed-responsive-16by9 card-embedded-media">
+        <%= link.link.embed_code.html_safe %>
       </div>
-    </div>
+  <% else %>
+      <div class="embed-responsive embed-responsive-16by9 card-thumbnail-media">
+        <img class='card-img-top img-fluid card-media' src="<%= link.link.thumbnail %>">
+      </div>
+  <%end%>
+
+  <div class="card-block">
+    <h4 class="card-title"><%= link.link.title %></h4>
+    <p class="card-text text-justify"><%= link.link.description.first(200) %></p>
   </div>
+
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><p class="card-text"><small class="text-muted">Category: <%= link.category %> </small></p></li>
+    <li class="list-group-item"><p class="card-text"><small class="text-muted">Added <%= time_ago_in_words(link.created_at) %> ago</small></p></li>
+  </ul>
+
+  <div class="card-block">
+    <a href="<%= link.link.url %>" class="btn btn-primary" target="_blank">Visit Link</a>
+    <%= link_to('Delete Entry', user_link_delete_url(link), method: :post, class: 'btn btn-outline-danger') %>
+    <%= link_to("Edit", user_link_edit_url(link), class: 'btn btn-outline-primary') %>
+  </div>
+</div>
+
