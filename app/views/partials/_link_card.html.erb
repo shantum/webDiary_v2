@@ -20,8 +20,8 @@
     <li class="list-group-item"><p class="card-text text-xs-left"><small class="text-muted">Category: <%= link.category %> </small></p></li>
     <li class="list-group-item"><p class="card-text text-xs-left"><small class="text-muted">Feed URL: <%= link.link.feed_url %> </small></p></li>
     <li class="list-group-item"><p class="card-text"><small class="text-muted">Added <%= time_ago_in_words(link.created_at) %> ago</small></p></li>
-    <%#TAGS FIELDS COMMENTED OUT>>li class="list-group-item"><p class="card-text"><small class="text-muted"><%= render 'partials/add_tag_form', locals: {link: @link} %><%#/small></p></li>
-    <li class="list-group-item"><p class="card-text"><small class="text-muted">Tags: <%= link.tag_list.to_s %><%#/small></p></li%>
+    <li class="list-group-item"><p class="card-text"><small class="text-muted"><%= render 'partials/add_tag_form', locals: {link: @link} %></small></p></li>
+    <li class="list-group-item"><p class="card-text"><small class="text-muted">Tags: <%= link.all_tags.to_s %></small></p></li>
   </ul>
 
   <div class="card-block">

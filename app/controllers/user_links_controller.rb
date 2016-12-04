@@ -44,16 +44,6 @@ class UserLinksController < ApplicationController
     redirect_to '/'
   end
 
-  # def add_tag
-  #   @tag_name = params[:name]
-  #   @user_link = params[:user_link]
-  #   @user_link.tags.add(@tag_name.to_s)
-  # end
-
-  # def user_params
-  #   params.require(:user).permit(:name, :tag_list) ## Rails 4 strong params usage
-  # end
-
   def load_feed
     require 'rss'
     require 'open-uri'
@@ -84,5 +74,12 @@ class UserLinksController < ApplicationController
 
     return @rss_data
 
+  end
+
+  def add_tag
+    @tag_name = params[:tag_name]
+    @user_link_id = params[:user_link_id].to_i
+    @user_link = UserLink.find(@user_link_id)
+    @user_link.add_tag(@tag_name)
   end
 end
