@@ -10,12 +10,7 @@ class Link < ApplicationRecord
     @youtube_regex = /^(?:https?:\/\/)?(?:www\.)?youtu(?:\.be|be\.com)\/(?:watch\?v=)?([\w-]{10,})/
 
     if @youtube_regex.match(self.url)
-      @video = Yt::Video.new url: url
-      self.title = @video.title
-      self.description = @video.description
-      self.group = 'youtube video'
-      self.embed_code = @video.embed_html
-      self.thumbnail = @video.thumbnail_url
+      youtube
     else
       @link = MetaInspector.new(self.url.split('#')[0]) #.split('#')
       if @link.response.status == 200
@@ -24,11 +19,23 @@ class Link < ApplicationRecord
         self.description = @link.description
         self.group = @link.host
         self.thumbnail = @link.images.best
+        self.feed_url = (@link.feed) ? @link.feed : ''
       else
         self.title = 'title could not be loaded by metainspector'
         self.description = 'description could not be loaded by metainspector'
         self.group = 'group could not be loaded by metainspector'
+
       end
     end
   end
+
+  def youtube
+    @video = Yt::Video.new url: url
+    self.title = @video.title
+    self.description = @video.description
+    self.group = 'youtube video'
+    self.embed_code = @video.embed_html
+    self.thumbnail = @video.thumbnail_url
+  end
+
 end

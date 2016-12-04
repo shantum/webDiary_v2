@@ -1,13 +1,10 @@
 $(document).ready(function () {
 
     $(".nav-bar-new-link").click(function(e) {
-        e.preventDefault();
         $(".nav-bar-new-link-modal").modal('show');
+        return false;
     });
 
-    $('.nav-bar-new-link-modal').on('shown.bs.modal', function () {
-        $('.user_links_new_input').focus()
-    })
 });
 
 

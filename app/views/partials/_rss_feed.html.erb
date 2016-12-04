@@ -1,0 +1,10 @@
+<% @rss_data.each do |result| %>
+  <% result.each do |post| %>
+        <%= post.each do |result| %>
+            <h3><%= result.title %></h3>
+            <p><%= result.description %></p>
+            <p>By: <%= result.dc_creator %></p>
+            <p><%= result.pubDate %></p>
+        <% end %>
+    <% end %>
+<% end %>

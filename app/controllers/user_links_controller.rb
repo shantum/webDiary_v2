@@ -2,7 +2,9 @@ class UserLinksController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    if user_signed_in?
+    if params[:tag]
+      @user_links = UserLink.where(user_id: current_user.id).tagged_with(params[:tag])
+    else
       @user_links = UserLink.where(user_id: current_user.id)
     end
   end
@@ -40,5 +42,47 @@ class UserLinksController < ApplicationController
     @user_link.delete
     @user_links = UserLink.where(user: current_user)
     redirect_to '/'
+  end
+
+  # def add_tag
+  #   @tag_name = params[:name]
+  #   @user_link = params[:user_link]
+  #   @user_link.tags.add(@tag_name.to_s)
+  # end
+
+  # def user_params
+  #   params.require(:user).permit(:name, :tag_list) ## Rails 4 strong params usage
+  # end
+
+  def load_feed
+    require 'rss'
+    require 'open-uri'
+    @rss_results = []
+
+    @user_links = UserLink.where(user_id: current_user.id)
+
+    @user_links.each do |user_link|
+      if user_link.link.feed_url != ""
+        @rss_results.push(user_link.link.feed_url)
+      end
+    end
+
+    @rss_data = []
+
+    @rss_results.each do |rss_url|
+      feed_data = []
+
+      if rss_url != nil
+        open(rss_url) do |rss|
+          feed = RSS::Parser.parse(rss).items[0..5]
+          feed_data.push(feed)
+        end
+
+      @rss_data.push(feed_data)
+      end
+    end
+
+    return @rss_data
+
   end
 end
