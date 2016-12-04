@@ -12,20 +12,7 @@ class Link < ApplicationRecord
     if @youtube_regex.match(self.url)
       youtube
     else
-      @link = MetaInspector.new(self.url.split('#')[0]) #.split('#')
-      if @link.response.status == 200
-        self.url = @link.untracked_url
-        self.title = @link.best_title
-        self.description = @link.description
-        self.group = @link.host
-        self.thumbnail = @link.images.best
-        self.feed_url = (@link.feed) ? @link.feed : ''
-      else
-        self.title = 'title could not be loaded by metainspector'
-        self.description = 'description could not be loaded by metainspector'
-        self.group = 'group could not be loaded by metainspector'
-
-      end
+      meta_inspector
     end
   end
 
@@ -36,6 +23,23 @@ class Link < ApplicationRecord
     self.group = 'youtube video'
     self.embed_code = @video.embed_html
     self.thumbnail = @video.thumbnail_url
+  end
+
+  def meta_inspector
+    @link = MetaInspector.new(self.url.split('#')[0]) #.split('#')
+
+    if @link.response.status == 200
+      self.url = @link.untracked_url
+      self.title = @link.best_title
+      self.description = @link.description
+      self.group = @link.host
+      self.thumbnail = @link.images.best
+      self.feed_url = (@link.feed) ? @link.feed : ''
+    else
+      self.title = 'title could not be loaded by metainspector'
+      self.description = 'description could not be loaded by metainspector'
+      self.group = 'group could not be loaded by metainspector'
+    end
   end
 
 end

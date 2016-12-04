@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161204130838) do
+ActiveRecord::Schema.define(version: 20161204180148) do
+
+  create_table "feeds", force: :cascade do |t|
+    t.string   "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.         "user_link"
+  end
 
   create_table "links", force: :cascade do |t|
     t.datetime "created_at",  null: false
@@ -29,6 +36,24 @@ ActiveRecord::Schema.define(version: 20161204130838) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_tags_on_name"
+  end
+
+  create_table "user_feed_tags", force: :cascade do |t|
+    t.integer  "user_feed_id"
+    t.integer  "tag_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["tag_id"], name: "index_user_feed_tags_on_tag_id"
+    t.index ["user_feed_id"], name: "index_user_feed_tags_on_user_feed_id"
+  end
+
+  create_table "user_feeds", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "feed_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["feed_id"], name: "index_user_feeds_on_feed_id"
+    t.index ["user_id"], name: "index_user_feeds_on_user_id"
   end
 
   create_table "user_link_tags", force: :cascade do |t|
