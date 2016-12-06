@@ -1,20 +1,29 @@
 
-
-<div class="container" id="home-user-links-container">
-
-  <h2>Here are your latest entries:</h2>
-  <br>
-  <br>
   <% if @recent_links %>
-      <div class="container">
-        <div class="card-deck-wrapper">
-          <div class="card-deck">
-            <% @recent_links.reverse.each do |link| %>
-                <%= render 'partials/link_card', link: link %>
-            <% end %>
+      <div class="container home-user-links-container">
+        <div class="row">
+          <div class="col-xs-9 user-recent-links-div">
+            <h3>Latest Entries:</h3>
+            <br>
+            <div class="card-deck-wrapper">
+              <div class="card-deck">
+                <% @recent_links.reverse.each do |link| %>
+                    <%= render 'partials/link_card', link: link %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-3 user-recent-feed-div">
+            <h3>Latest Feed Posts:</h3>
+            <br>
+            <div class="card-deck-wrapper">
+              <div class="card-deck">
+                <% @user_feeds.each do |user_feed| %>
+                    <%= render 'partials/rss_feed', user_feed: user_feed %>
+                <% end %>
+              </div>
+            </div>
           </div>
         </div>
       </div>
   <% end %> <%#show recent links %>
-
-</div>

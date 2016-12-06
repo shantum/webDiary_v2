@@ -5,6 +5,11 @@ $(document).ready(function () {
         return false;
     });
 
+    $(".nav-bar-new-feed").click(function(e) {
+        $(".nav-bar-new-feed-modal").modal('show');
+        return false;
+    });
+
 });
 
 

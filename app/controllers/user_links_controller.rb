@@ -12,19 +12,21 @@ class UserLinksController < ApplicationController
   def create
     @url = params[:url]
 
-    # @user_link = Link.first_or_create!(url: @url)
+    @link = Link.find_or_create_by!(url: @url)
 
-    if Link.exists?(url: @url)  #check if link exists by url
-      @link = Link.find_by(url: @url) #if yes, then assign @link to such link
-      if UserLink.where(link: @link, user: current_user ).empty? #check if user_link with same link exists
-        @user_link = UserLink.create(user: current_user, link: @link, category: 'un-defined!') #if not, create a new user_link
-      else
-        @user_link = UserLink.find_by(link: @link) #if yes, assign @user_link to such user_link
-      end
-    else
-      @link = Link.create(url: @url) #if link does not exist in the table, create a new link
-      @user_link = UserLink.create(user: current_user, link: @link, category: 'un-defined!') #since link does not yet exist, user_link cannot exist either
-    end # Non-duplication conditions
+    @user_link = UserLink.find_or_create_by!(user: current_user, link: @link)
+
+    # if Link.exists?(url: @url)  #check if link exists by url
+    #   @link = Link.find_by(url: @url) #if yes, then assign @link to such link
+    #   if UserLink.where(link: @link, user: current_user ).empty? #check if user_link with same link exists
+    #     @user_link = UserLink.create!(user: current_user, link: @link, category: 'un-defined!') #if not, create a new user_link
+    #   else
+    #     @user_link = UserLink.find_by(link: @link) #if yes, assign @user_link to such user_link
+    #   end
+    # else
+    #   @link = Link.create!(url: @url) #if link does not exist in the table, create a new link
+    #   @user_link = UserLink.create!(user: current_user, link: @link, category: 'un-defined!') #since link does not yet exist, user_link cannot exist either
+    # end # Non-duplication conditions
 
     render :view
   end
@@ -53,5 +55,12 @@ class UserLinksController < ApplicationController
       name = name.delete(' ')
       @user_link.add_tag(name)
       end
+  end
+
+  def add_feed
+    @url = params[:url]
+
+    @feed = Feed.find_or_create_by!(url: @url)
+    @user_feed = UserFeed.find_or_create_by!(feed: @feed)
   end
 end

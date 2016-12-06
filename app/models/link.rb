@@ -33,12 +33,31 @@ class Link < ApplicationRecord
       self.title = @link.best_title
       self.description = @link.description
       self.group = @link.host
-      self.thumbnail = @link.images.best
-      self.feed_url = (@link.feed) ? @link.feed : ''
+      self.thumbnail = (@link.images.best) ? @link.images.best : "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/300px-No_image_available.svg.png"
+      set_feed(self.url)
     else
       self.title = 'title could not be loaded by metainspector'
       self.description = 'description could not be loaded by metainspector'
       self.group = 'group could not be loaded by metainspector'
+    end
+  end
+
+  def set_feed(url)
+    feed_url = Feedbag.find url
+    feed_url = feed_url.first
+
+    if feed_check(feed_url)
+      self.feed_url = feed_url
+    end
+  end
+
+  def feed_check(feed_url)
+    feed_data = SimpleRSS.parse open(feed_url)
+
+    if feed_data.entries.empty?
+      false
+    else
+      true
     end
   end
 

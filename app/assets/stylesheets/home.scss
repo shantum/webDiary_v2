@@ -8,11 +8,28 @@
   padding: 5px;
 }
 
-#home-user-links-container {
+.home-user-links-container {
+  margin: 0;
   margin-left: 1%;
-  margin-top: 1%;
-  width: 80%;
+  margin-right: 1%;
+  width: 100%;
   padding: 10px;
+}
+
+.feed-link-card {
+  width: 350px;
+}
+
+.feed-link-card-title {
+  text-align: justify;
+  width: 100%;
+}
+
+
+.user-recent-feed-div {
+  overflow-x: scroll;
+  position: absolute;
+  right:0px;
 }
 
 #home-user-links-each-title {

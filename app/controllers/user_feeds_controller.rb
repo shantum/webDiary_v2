@@ -2,26 +2,41 @@ class UserFeedsController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    require 'open-uri'
     @user_feeds = UserFeed.where(user_id: current_user.id)
+    @entries = []
+
+    @user_feeds.each do |user_feed|
+      feed_data = Feedjira::Feed.fetch_and_parse user_feed.feed.url
+      @entries.push(feed_data.entries)
+    end
+
+    return @entries
   end
 
   def create
     @url = params[:url]
 
-    if Feed.exists?(url: @url)  #check if feed exists by url
-      @feed = Feed.find_by(url: @url) #if yes, then assign @feed to such feed
-      if UserFeed.where(feed: @feed, user: current_user ).empty? #check if user_link with same link exists
-        @user_feed = UserFeed.create(user: current_user, feed: @feed, category: 'un-defined!') #if not, create a new user_link
-      else
-        @user_feed = UserFeed.find_by(feed: @feed) #if yes, assign @user_link to such user_link
-      end
-    else
-      @feed = Feed.create(url: @url) #if link does not exist in the table, create a new link
-      @user_feed = UserFeed.create(user: current_user, link: @feed, category: 'un-defined!') #since link does not yet exist, user_link cannot exist either
-    end
+    @feed = Feed.find_or_create_by!(url: @url)
+
+    @user_feed = UserFeed.find_or_create_by!(user_id: current_user.id, feed: @feed)
+
+    render 'partials/rss_feed'
+
+    # if Feed.exists?(url: @url)  #check if feed exists by url
+    #   @feed = Feed.find_by(url: @url) #if yes, then assign @feed to such feed
+    #   if UserFeed.where(feed: @feed, user: current_user ).empty? #check if user_link with same link exists
+    #     @user_feed = UserFeed.create(user: current_user, feed: @feed) #if not, create a new user_link
+    #   else
+    #     @user_feed = UserFeed.find_by(feed: @feed) #if yes, assign @user_link to such user_link
+    #   end
+    # else
+    #   @feed = Feed.create(url: @url) #if link does not exist in the table, create a new link
+    #   @user_feed = UserFeed.create(user: current_user, feed: @feed) #since link does not yet exist, user_link cannot exist either
+    # end
   end
 
-  def load_feed
+  def load_feed(url)
     require 'rss'
     require 'open-uri'
     @rss_results = []

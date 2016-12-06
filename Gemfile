@@ -40,6 +40,10 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'
 end
 
+#RSS Feeds
+gem 'feedjira'
+gem 'simple-rss'
+gem 'feedbag'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
