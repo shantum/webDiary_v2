@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161204182520) do
+ActiveRecord::Schema.define(version: 20161207130115) do
 
   create_table "feeds", force: :cascade do |t|
     t.string   "url"
@@ -55,6 +55,14 @@ ActiveRecord::Schema.define(version: 20161204182520) do
     t.datetime "updated_at", null: false
     t.index ["feed_id"], name: "index_user_feeds_on_feed_id"
     t.index ["user_id"], name: "index_user_feeds_on_user_id"
+  end
+
+  create_table "user_link_notes", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "UserLink_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["UserLink_id"], name: "index_user_link_notes_on_UserLink_id"
   end
 
   create_table "user_link_tags", force: :cascade do |t|

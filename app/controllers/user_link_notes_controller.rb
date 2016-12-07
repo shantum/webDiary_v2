@@ -1,0 +1,5 @@
+class UserLinkNotesController < ApplicationController
+
+
+
+end

@@ -45,6 +45,8 @@ gem 'feedjira'
 gem 'simple-rss'
 gem 'feedbag'
 
+gem 'bootstrap_tokenfield_rails'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

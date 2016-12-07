@@ -1,20 +1,14 @@
 
+
+
 <h4><%= user_feed.feed.title %></h4>
 <% feed_data = Feedjira::Feed.fetch_and_parse user_feed.feed.url %>
+<div class="list-group">
 <% feed_data.entries[0..5].each do |entry| %>
-      <div class="row feed-link-card-row">
-        <div class="card card-block feed-link-card">
-          <h6 class="card-title feed-link-card-title"><%= link_to entry.title, entry.url %></h6>
-          <p class="card-text">
-            <span style="float: right">
-               <small class="text-muted ">
-                 Published <%= time_ago_in_words(entry.published) %> ago
-               </small>
-             </span>
-          </p>
-        </div>
-        <br>
-      </div>
+  <a href="<%= entry.url %>" class="list-group-item list-group-item-action">
+    <h6 class="list-group-item-heading"><%= entry.title %></h6>
+    <p class="card-text"><small class="text-muted">Published <%= time_ago_in_words(entry.published) %> ago</small></p>
+  </a>
 <% end %>
-
+</div>
 

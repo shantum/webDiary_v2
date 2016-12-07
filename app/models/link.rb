@@ -43,12 +43,17 @@ class Link < ApplicationRecord
   end
 
   def set_feed(url)
-    feed_url = Feedbag.find url
-    feed_url = feed_url.first
+    feed_url_array = Feedbag.find url
 
-    if feed_check(feed_url)
-      self.feed_url = feed_url
+    if feed_url_array.empty?
+      false
+    else
+      feed_url = feed_url_array.first
+      if feed_check(feed_url)
+        self.feed_url = feed_url
+      end
     end
+
   end
 
   def feed_check(feed_url)

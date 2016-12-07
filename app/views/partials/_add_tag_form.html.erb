@@ -1,7 +1,7 @@
 <%= form_tag('/user_links/add_tag', method: 'post', class: "form-inline", id: "user-link-new-tag-form") do %>
     <div class="form-group" id="user-links-new-tag-form-div">
-      <%= text_field_tag(:tag_name, nil, class: 'form-control', placeholder: 'Enter tags here', id: 'user-links-new-tag-input') %>
+      <%= text_field_tag(:tag_name, nil, class: 'form-control form-control-sm', placeholder: 'Enter tags here', id: 'user-links-new-tag-input') %>
       <%= hidden_field_tag(:user_link_id, @link.id) %>
-      <%= submit_tag('Add', class: 'btn btn-primary', id: 'user-links-new-tag-button') %>
+      <%= submit_tag('Add', class: 'btn btn-primary btn-sm', id: 'user-links-new-tag-button') %>
     </div>
 <% end %>

@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     if user_signed_in?
       if UserLink.count > 5

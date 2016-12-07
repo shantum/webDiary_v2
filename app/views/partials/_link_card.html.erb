@@ -1,40 +1,71 @@
 <% @link = link %>
 
 <div class="card user-link-card-div">
+
   <% if link.link.embed_code %>
-      <div class="embed-responsive embed-responsive-16by9 card-embedded-media">
+      <div class="embed-responsive embed-responsive-16by9 link-card-embedded-media">
         <%= link.link.embed_code.html_safe %>
       </div>
-  <%end%>
+  <%end%> <%# show embed code if available %>
 
   <div class="card-block">
-    <h4 class="card-title"><%= link_to link.link.title, link.link.url %></h4>
-    <p class="card-text text-justify"><%= link.link.description.first(200) %></p>
-    <p class="card-text">
+
+    <div class="link-card-main">
+    <h5 class="card-title"><%= link_to link.link.title, link.link.url %></h5>
+    <p class="card-text text-justify link-card-description-text"><%= link.link.description.first(200) %></p>
+  </div> <%# link title and description%>
+
+  </div>
+
+  <div class="card-footer text-muted link-card-footer">
+    <p class="card-text link-card-footer-text">
       <span style="float: left">
         <small class="text-muted">Source: <%= link_to link.link.group, 'http://' + link.link.group %> </small>
       </span>
       <span style="float: right">
-        <small class="text-muted ">Added <%= time_ago_in_words(link.created_at) %> ago</small></p>
+        <small class="text-muted ">Added <%= time_ago_in_words(link.created_at) %> ago</small>
       </span>
-  </div>
+    </p>
+  </div> <%# link card footer info%>
 
   <ul class="list-group list-group-flush">
-    <% if link.link.feed_url != nil %>
-    <% if Feedbag.feed? link.link.feed_url %>
-    <% if Feed.where(url: link.link.feed_url).empty? %>
-      <li class="list-group-item"><%= link_to('Add Site Feed', {controller: 'user_feeds', action: 'create', url: link.link.feed_url}, method: :post, class: 'btn btn-outline-danger') %></li>
-    <% end %>
-    <% end %>
-    <% end %>
-    <li class="list-group-item"><p class="card-text"><small class="text-muted"><%= render 'partials/add_tag_form', locals: {link: @link} %></small></p></li>
-    <li class="list-group-item"><p class="card-text"><small class="text-muted">Tags: <%= link.all_tags.to_s %></small></p></li>
-  </ul>
+    <li class="list-group-item">
+      <p class="card-text">
+        <small class="text-muted">Tags: <% link.all_tags.split(',').each do |tag| %><span class="tag tag-pill tag-default"><%= tag %></span><% end %></small>
+      </p>
+    </li> <%# tags %>
 
-  <div class="card-block">
-    <a href="<%= link.link.url %>" class="btn btn-primary" target="_blank">Visit Link</a>
-    <%= link_to('Delete Entry', user_link_delete_url(link), method: :post, class: 'btn btn-outline-danger') %>
-    <%# link_to("Edit", user_link_edit_url(link), class: 'btn btn-outline-primary') %>
-  </div>
+    <li class="list-group-item">
+      <%= link.all_notes.content unless link.all_notes.nil? %>
+    </li>
+
+    <li class="list-group-item">
+      <%= link_to('Delete Entry', user_link_delete_url(link), method: :post, class: 'btn btn-outline-danger btn-sm list-inline-item') %>
+      <a class="btn btn-primary btn-sm" data-toggle="collapse" href="#add-tag-collapse" aria-expanded="false" aria-controls="collapseExample">Add Tags</a>
+      <a class="btn btn-primary btn-sm" data-toggle="collapse" href="#add-note-collapse" aria-expanded="false" aria-controls="collapseExample">Add a Note</a>
+      <% if link.link.feed_url != nil %>
+          <% if Feedbag.feed? link.link.feed_url %>
+              <% if Feed.where(url: link.link.feed_url).empty? %>
+                  <%= link_to('Add Feed', {controller: 'user_feeds', action: 'create', url: link.link.feed_url}, method: :post, class: 'btn btn-outline-primary btn-sm list-inline-tem') %>
+              <% end %>
+          <% end %>
+      <% end %>
+    </li>
+
+    <li class="list-group-item">
+      <div class="collapse add-note-collapse" id="add-tag-collapse">
+          <%= render 'partials/add_tag_form', locals: {link: @link} %>
+      </div>
+      <div class="collapse" id="add-note-collapse">
+          <%= render 'partials/add_note_form', locals: {link: @link} %>
+      </div>
+    </li>
+
+
+
+  </ul>
 </div>
+
+
+
 

@@ -16,5 +16,5 @@ Rails.application.routes.draw do
   post '/user_feeds/create', to: 'user_feeds#create'
   # post '/user_links/edit/:id', to: 'user_links#edit'
   post '/user_links/delete/:id', to: 'user_links#delete', as: 'user_link_delete'
-  post '/user_links/add_tag', to: 'user_links#add_tag'
+  post '/user_links/add_note', to: 'user_links#add_note'
 end

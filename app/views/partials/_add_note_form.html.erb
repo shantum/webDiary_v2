@@ -1,0 +1,7 @@
+<%= form_tag('/user_links/add_note', method: 'post', class: "form-inline", id: "user-link-new-tag-form") do %>
+    <div class="form-group" id="user-links-new-tag-form-div">
+      <%= text_area_tag(:content, nil, class: 'form-control form-control-sm', placeholder: 'Content', id: 'user-links-new-note-content-input') %>
+      <%= hidden_field_tag(:user_link_id, @link.id) %>
+      <%= submit_tag('Add', class: 'btn btn-primary btn-sm', id: 'user-links-new-tag-button') %>
+    </div>
+<% end %>

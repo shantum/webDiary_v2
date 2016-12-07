@@ -54,7 +54,9 @@ class UserLinksController < ApplicationController
     @tag_names.each do |name|
       name = name.delete(' ')
       @user_link.add_tag(name)
-      end
+    end
+
+    redirect_to '/'
   end
 
   def add_feed
@@ -62,5 +64,15 @@ class UserLinksController < ApplicationController
 
     @feed = Feed.find_or_create_by!(url: @url)
     @user_feed = UserFeed.find_or_create_by!(feed: @feed)
+
+    redirect_to '/'
+  end
+
+  def add_note
+    content = params[:content]
+    user_link_id = params[:user_link_id]
+    user_link = UserLink.find(user_link_id)
+    note = user_link.add_note(content)
+    redirect_to '/'
   end
 end

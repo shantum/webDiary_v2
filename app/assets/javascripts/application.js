@@ -14,6 +14,7 @@
 //= require tether
 //= require jquery_ujs
 //= require bootstrap-sprockets
+//= require bootstrap-tokenfield
 //= require_tree ./sitewide
 //= require_tree .
 //require turbolinks
