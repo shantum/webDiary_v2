@@ -1,18 +1,13 @@
 class FeedEntry < ApplicationRecord
   belongs_to :feed, dependent: :destroy
-  validates_presence_of :title, :description, :date, :author, :feed
+  before_save :strip_summary_tags
+  validates_presence_of :title, :published, :feed, :host, :url
+  validates :url, uniqueness: true
 
-  def create
-    FeedEntry.create(feed_entry_params)
-  end
+  def strip_summary_tags
+    full_sanitizer = Rails::Html::FullSanitizer.new
 
-
-  entry = FeedEntry
-
-  private
-
-  def feed_entry_params
-    params.require(:feed_entry).permit(:title, :description, :date, :author, :feed)
+    self.summary = full_sanitizer.sanitize(self.summary)
   end
 
 

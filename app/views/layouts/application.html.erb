@@ -9,16 +9,23 @@
   </head>
 
   <body>
-    <% if notice %>
-        <p class="alert alert-success"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-        <p class="alert alert-danger"><%= alert %></p>
-    <% end %>
+    <div>
+      <% if notice %>
+          <p class="alert alert-success"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+          <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
+    </div>
 
-    <%= render 'partials/navbar_top' %>
+    <div>
+      <%= render 'partials/navbar_top' %>
+    </div>
 
-    <%= yield %>
+    <div class="main-body-div">
+      <%= yield %>
+    </div>
 
   </body>
+
 </html>

@@ -47,6 +47,8 @@ gem 'feedbag'
 
 gem 'bootstrap_tokenfield_rails'
 
+gem 'rails-html-sanitizer'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

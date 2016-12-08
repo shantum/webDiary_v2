@@ -17,9 +17,9 @@ class UserFeedsController < ApplicationController
   def create
     @url = params[:url]
 
-    @feed = Feed.find_or_create_by!(url: @url)
+    @feed = Feed.find_or_create_by!(url: @url) unless @url.nil?
 
-    @user_feed = UserFeed.find_or_create_by!(user_id: current_user.id, feed: @feed)
+    @user_feed = UserFeed.find_or_create_by!(user_id: current_user.id, feed: @feed) unless @feed.nil?
 
     render 'partials/rss_feed'
 

@@ -57,7 +57,7 @@ class Link < ApplicationRecord
   end
 
   def feed_check(feed_url)
-    feed_data = SimpleRSS.parse open(feed_url)
+    feed_data = Feedjira::Feed.fetch_and_parse feed_url
 
     if feed_data.entries.empty?
       false

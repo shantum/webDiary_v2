@@ -3,8 +3,8 @@
 
   <div class="card-deck-wrapper">
     <div class="card-deck user-links-card-deck">
-      <% @user_links.reverse.each do |link| %>
-          <%= render 'partials/link_card', link: link %>
+      <% current_user_links.reverse.each do |user_link| %>
+          <%= render 'partials/link_card', user_link: user_link %>
       <% end %>
     </div>
   </div>

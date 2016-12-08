@@ -1,36 +1,26 @@
+<div class="container-fluid home-user-links-container">
+  <div class="row">
 
-<% if @recent_links %>
-    <div class="container-fluid home-user-links-container">
-      <div class="row">
-
-        <div class="col-xs-7 user-recent-links-div">
-          <h3>Latest Entries:</h3>
-          <br>
-          <div class="container-fluid">
-            <% @recent_links.reverse.in_groups_of(2) do |group| %>
-
-                <div class="card-deck">
-                  <% group.each do |link| %>
-                      <%= (render 'partials/link_card', link: link) unless link.nil? %>
-                  <% end %>
-                </div>
-
-            <%end%>
-          </div>
-        </div>
-
-        <div class="col-xs-4 user-recent-feed-div">
-          <h3>Latest Feed Posts:</h3>
-          <br>
-          <div class="card-deck-wrapper">
-            <div class="card-deck">
-              <% @user_feeds.each do |user_feed| %>
-                  <%= render 'partials/rss_feed', user_feed: user_feed %>
-              <% end %>
-            </div>
-          </div>
-        </div>
-
+    <% if current_user_recent_links %>
+      <div class="col-xs-8 user-recent-links-div">
+        <%= render 'partials/recent_entries'%>
       </div>
-    </div>
-<% end %> <%#show recent links %>
+    <% end %> <%#show recent links %>
+
+    <% if current_user_feeds %>
+      <div class="col-xs-4 user-recent-feed-div" id="user-recent-feed-div">
+        <h3>Latest Feed Posts:</h3>
+        <br>
+        <div class="card-deck-wrapper">
+          <div class="card-deck">
+            <% newest_feed_entries.each do |entry| %>
+                <%= render 'partials/rss_feed', entry: entry %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %> <%#show recent feeds %>
+
+  </div>
+</div>
+

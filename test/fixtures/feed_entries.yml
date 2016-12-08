@@ -2,14 +2,16 @@
 
 one:
   title: MyString
-  description: MyString
-  date: 2016-12-05 13:35:18
-  author: MyString
-  feed: one
+  host: MyString
+  url: MyString
+  summary: MyText
+  Feed: one
+  published: 2016-12-07 23:38:38
 
 two:
   title: MyString
-  description: MyString
-  date: 2016-12-05 13:35:18
-  author: MyString
-  feed: two
+  host: MyString
+  url: MyString
+  summary: MyText
+  Feed: two
+  published: 2016-12-07 23:38:38

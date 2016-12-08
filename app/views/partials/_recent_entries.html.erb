@@ -1,0 +1,11 @@
+<h3>Latest Entries:</h3>
+<br>
+<div class="container">
+  <% current_user_recent_links.in_groups_of(3) do |group| %>
+    <div class="row">
+      <% group.each do |user_link| %>
+        <%= (render 'partials/link_card', user_link: user_link) unless user_link.nil? %>
+      <% end %>
+    </div>
+  <%end%>
+</div>

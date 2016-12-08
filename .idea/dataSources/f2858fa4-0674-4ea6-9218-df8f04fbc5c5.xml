@@ -7,399 +7,446 @@
       <Visible>1</Visible>
     </schema>
     <table id="3" parent="2" name="ar_internal_metadata"/>
-    <table id="4" parent="2" name="feeds"/>
-    <table id="5" parent="2" name="links"/>
-    <table id="6" parent="2" name="schema_migrations"/>
-    <table id="7" parent="2" name="sqlite_sequence"/>
-    <table id="8" parent="2" name="tags"/>
-    <table id="9" parent="2" name="user_feed_tags"/>
-    <table id="10" parent="2" name="user_feeds"/>
-    <table id="11" parent="2" name="user_link_notes"/>
-    <table id="12" parent="2" name="user_link_tags"/>
-    <table id="13" parent="2" name="user_links"/>
-    <table id="14" parent="2" name="users"/>
-    <column id="15" parent="3" name="key">
+    <table id="4" parent="2" name="feed_entries"/>
+    <table id="5" parent="2" name="feeds"/>
+    <table id="6" parent="2" name="links"/>
+    <table id="7" parent="2" name="schema_migrations"/>
+    <table id="8" parent="2" name="sqlite_sequence"/>
+    <table id="9" parent="2" name="tags"/>
+    <table id="10" parent="2" name="user_feed_tags"/>
+    <table id="11" parent="2" name="user_feeds"/>
+    <table id="12" parent="2" name="user_link_notes"/>
+    <table id="13" parent="2" name="user_link_tags"/>
+    <table id="14" parent="2" name="user_links"/>
+    <table id="15" parent="2" name="users"/>
+    <column id="16" parent="3" name="key">
       <DataType>VARCHAR(0,-1)|12</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="16" parent="3" name="value">
+    <column id="17" parent="3" name="value">
       <Position>1</Position>
       <DataType>VARCHAR(0,-1)|12</DataType>
     </column>
-    <column id="17" parent="3" name="created_at">
+    <column id="18" parent="3" name="created_at">
       <Position>2</Position>
       <DataType>DATETIME(0,-1)|12</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="18" parent="3" name="updated_at">
+    <column id="19" parent="3" name="updated_at">
       <Position>3</Position>
       <DataType>DATETIME(0,-1)|12</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="19" parent="3">
+    <key id="20" parent="3">
       <ColNames>key</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="20" parent="4" name="id">
+    <column id="21" parent="4" name="id">
       <DataType>INTEGER(0,-1)|4</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="21" parent="4" name="url">
+    <column id="22" parent="4" name="title">
       <Position>1</Position>
       <DataType>VARCHAR(0,-1)|12</DataType>
     </column>
-    <column id="22" parent="4" name="created_at">
+    <column id="23" parent="4" name="host">
       <Position>2</Position>
-      <DataType>DATETIME(0,-1)|12</DataType>
-      <NotNull>1</NotNull>
+      <DataType>VARCHAR(0,-1)|12</DataType>
     </column>
-    <column id="23" parent="4" name="updated_at">
+    <column id="24" parent="4" name="url">
       <Position>3</Position>
-      <DataType>DATETIME(0,-1)|12</DataType>
-      <NotNull>1</NotNull>
+      <DataType>VARCHAR(0,-1)|12</DataType>
     </column>
-    <column id="24" parent="4" name="title">
+    <column id="25" parent="4" name="author">
       <Position>4</Position>
       <DataType>VARCHAR(0,-1)|12</DataType>
     </column>
-    <column id="25" parent="4" name="description">
+    <column id="26" parent="4" name="summary">
       <Position>5</Position>
       <DataType>TEXT(0,-1)|12</DataType>
     </column>
-    <key id="26" parent="4">
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="27" parent="5" name="id">
-      <DataType>INTEGER(0,-1)|4</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="28" parent="5" name="created_at">
-      <Position>1</Position>
-      <DataType>DATETIME(0,-1)|12</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="29" parent="5" name="updated_at">
-      <Position>2</Position>
-      <DataType>DATETIME(0,-1)|12</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="30" parent="5" name="url">
-      <Position>3</Position>
-      <DataType>VARCHAR(0,-1)|12</DataType>
-    </column>
-    <column id="31" parent="5" name="title">
-      <Position>4</Position>
-      <DataType>VARCHAR(0,-1)|12</DataType>
-    </column>
-    <column id="32" parent="5" name="description">
-      <Position>5</Position>
-      <DataType>VARCHAR(0,-1)|12</DataType>
-    </column>
-    <column id="33" parent="5" name="group">
+    <column id="27" parent="4" name="feed_id">
       <Position>6</Position>
-      <DataType>VARCHAR(0,-1)|12</DataType>
+      <DataType>INTEGER(0,-1)|4</DataType>
     </column>
-    <column id="34" parent="5" name="embed_code">
+    <column id="28" parent="4" name="published">
       <Position>7</Position>
-      <DataType>VARCHAR(0,-1)|12</DataType>
+      <DataType>DATETIME(0,-1)|12</DataType>
     </column>
-    <column id="35" parent="5" name="thumbnail">
+    <column id="29" parent="4" name="created_at">
       <Position>8</Position>
-      <DataType>VARCHAR(0,-1)|12</DataType>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="36" parent="5" name="feed_url">
+    <column id="30" parent="4" name="updated_at">
       <Position>9</Position>
-      <DataType>VARCHAR(0,-1)|12</DataType>
-    </column>
-    <key id="37" parent="5">
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="38" parent="6" name="version">
-      <DataType>VARCHAR(0,-1)|12</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <key id="39" parent="6">
-      <ColNames>version</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="40" parent="7" name="name">
-      <DataType>(0,-1)|12</DataType>
-    </column>
-    <column id="41" parent="7" name="seq">
-      <Position>1</Position>
-      <DataType>(0,-1)|12</DataType>
-    </column>
-    <column id="42" parent="8" name="id">
-      <DataType>INTEGER(0,-1)|4</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="43" parent="8" name="name">
-      <Position>1</Position>
-      <DataType>VARCHAR(0,-1)|12</DataType>
-    </column>
-    <column id="44" parent="8" name="created_at">
-      <Position>2</Position>
       <DataType>DATETIME(0,-1)|12</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="45" parent="8" name="updated_at">
-      <Position>3</Position>
-      <DataType>DATETIME(0,-1)|12</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <index id="46" parent="8" name="index_tags_on_name">
-      <ColNames>name</ColNames>
-      <Unique>1</Unique>
-    </index>
-    <key id="47" parent="8">
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="48" parent="9" name="id">
-      <DataType>INTEGER(0,-1)|4</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="49" parent="9" name="user_feed_id">
-      <Position>1</Position>
-      <DataType>INTEGER(0,-1)|4</DataType>
-    </column>
-    <column id="50" parent="9" name="tag_id">
-      <Position>2</Position>
-      <DataType>INTEGER(0,-1)|4</DataType>
-    </column>
-    <column id="51" parent="9" name="created_at">
-      <Position>3</Position>
-      <DataType>DATETIME(0,-1)|12</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="52" parent="9" name="updated_at">
-      <Position>4</Position>
-      <DataType>DATETIME(0,-1)|12</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <index id="53" parent="9" name="index_user_feed_tags_on_user_feed_id">
-      <ColNames>user_feed_id</ColNames>
-      <Unique>1</Unique>
-    </index>
-    <index id="54" parent="9" name="index_user_feed_tags_on_tag_id">
-      <ColNames>tag_id</ColNames>
-      <Unique>1</Unique>
-    </index>
-    <key id="55" parent="9">
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="56" parent="10" name="id">
-      <DataType>INTEGER(0,-1)|4</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="57" parent="10" name="user_id">
-      <Position>1</Position>
-      <DataType>INTEGER(0,-1)|4</DataType>
-    </column>
-    <column id="58" parent="10" name="feed_id">
-      <Position>2</Position>
-      <DataType>INTEGER(0,-1)|4</DataType>
-    </column>
-    <column id="59" parent="10" name="created_at">
-      <Position>3</Position>
-      <DataType>DATETIME(0,-1)|12</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="60" parent="10" name="updated_at">
-      <Position>4</Position>
-      <DataType>DATETIME(0,-1)|12</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <index id="61" parent="10" name="index_user_feeds_on_user_id">
-      <ColNames>user_id</ColNames>
-      <Unique>1</Unique>
-    </index>
-    <index id="62" parent="10" name="index_user_feeds_on_feed_id">
+    <index id="31" parent="4" name="index_feed_entries_on_feed_id">
       <ColNames>feed_id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="63" parent="10">
+    <key id="32" parent="4">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="64" parent="11" name="id">
+    <column id="33" parent="5" name="id">
       <DataType>INTEGER(0,-1)|4</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="65" parent="11" name="title">
+    <column id="34" parent="5" name="url">
       <Position>1</Position>
       <DataType>VARCHAR(0,-1)|12</DataType>
     </column>
-    <column id="66" parent="11" name="content">
+    <column id="35" parent="5" name="created_at">
       <Position>2</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="36" parent="5" name="updated_at">
+      <Position>3</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="37" parent="5" name="title">
+      <Position>4</Position>
+      <DataType>VARCHAR(0,-1)|12</DataType>
+    </column>
+    <column id="38" parent="5" name="description">
+      <Position>5</Position>
       <DataType>TEXT(0,-1)|12</DataType>
     </column>
-    <column id="67" parent="11" name="UserLink_id">
-      <Position>3</Position>
-      <DataType>INTEGER(0,-1)|4</DataType>
-    </column>
-    <column id="68" parent="11" name="created_at">
-      <Position>4</Position>
-      <DataType>DATETIME(0,-1)|12</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="69" parent="11" name="updated_at">
-      <Position>5</Position>
-      <DataType>DATETIME(0,-1)|12</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <index id="70" parent="11" name="index_user_link_notes_on_UserLink_id">
-      <ColNames>UserLink_id</ColNames>
-      <Unique>1</Unique>
-    </index>
-    <key id="71" parent="11">
+    <key id="39" parent="5">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="72" parent="12" name="id">
+    <column id="40" parent="6" name="id">
       <DataType>INTEGER(0,-1)|4</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="73" parent="12" name="user_link_id">
+    <column id="41" parent="6" name="created_at">
       <Position>1</Position>
-      <DataType>INTEGER(0,-1)|4</DataType>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="74" parent="12" name="tag_id">
+    <column id="42" parent="6" name="updated_at">
       <Position>2</Position>
-      <DataType>INTEGER(0,-1)|4</DataType>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="75" parent="12" name="created_at">
+    <column id="43" parent="6" name="url">
+      <Position>3</Position>
+      <DataType>VARCHAR(0,-1)|12</DataType>
+    </column>
+    <column id="44" parent="6" name="title">
+      <Position>4</Position>
+      <DataType>VARCHAR(0,-1)|12</DataType>
+    </column>
+    <column id="45" parent="6" name="description">
+      <Position>5</Position>
+      <DataType>VARCHAR(0,-1)|12</DataType>
+    </column>
+    <column id="46" parent="6" name="group">
+      <Position>6</Position>
+      <DataType>VARCHAR(0,-1)|12</DataType>
+    </column>
+    <column id="47" parent="6" name="embed_code">
+      <Position>7</Position>
+      <DataType>VARCHAR(0,-1)|12</DataType>
+    </column>
+    <column id="48" parent="6" name="thumbnail">
+      <Position>8</Position>
+      <DataType>VARCHAR(0,-1)|12</DataType>
+    </column>
+    <column id="49" parent="6" name="feed_url">
+      <Position>9</Position>
+      <DataType>VARCHAR(0,-1)|12</DataType>
+    </column>
+    <key id="50" parent="6">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="51" parent="7" name="version">
+      <DataType>VARCHAR(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="52" parent="7">
+      <ColNames>version</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="53" parent="8" name="name">
+      <DataType>(0,-1)|12</DataType>
+    </column>
+    <column id="54" parent="8" name="seq">
+      <Position>1</Position>
+      <DataType>(0,-1)|12</DataType>
+    </column>
+    <column id="55" parent="9" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="56" parent="9" name="name">
+      <Position>1</Position>
+      <DataType>VARCHAR(0,-1)|12</DataType>
+    </column>
+    <column id="57" parent="9" name="created_at">
+      <Position>2</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="58" parent="9" name="updated_at">
       <Position>3</Position>
       <DataType>DATETIME(0,-1)|12</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="76" parent="12" name="updated_at">
+    <index id="59" parent="9" name="index_tags_on_name">
+      <ColNames>name</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="60" parent="9">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="61" parent="10" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="62" parent="10" name="user_feed_id">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+    </column>
+    <column id="63" parent="10" name="tag_id">
+      <Position>2</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+    </column>
+    <column id="64" parent="10" name="created_at">
+      <Position>3</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="65" parent="10" name="updated_at">
       <Position>4</Position>
       <DataType>DATETIME(0,-1)|12</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="77" parent="12" name="index_user_link_tags_on_user_link_id">
-      <ColNames>user_link_id</ColNames>
+    <index id="66" parent="10" name="index_user_feed_tags_on_user_feed_id">
+      <ColNames>user_feed_id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="78" parent="12" name="index_user_link_tags_on_tag_id">
+    <index id="67" parent="10" name="index_user_feed_tags_on_tag_id">
       <ColNames>tag_id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="79" parent="12">
+    <key id="68" parent="10">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="80" parent="13" name="id">
+    <column id="69" parent="11" name="id">
       <DataType>INTEGER(0,-1)|4</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="81" parent="13" name="category">
+    <column id="70" parent="11" name="user_id">
       <Position>1</Position>
-      <DataType>VARCHAR(0,-1)|12</DataType>
+      <DataType>INTEGER(0,-1)|4</DataType>
     </column>
-    <column id="82" parent="13" name="created_at">
+    <column id="71" parent="11" name="feed_id">
       <Position>2</Position>
-      <DataType>DATETIME(0,-1)|12</DataType>
-      <NotNull>1</NotNull>
+      <DataType>INTEGER(0,-1)|4</DataType>
     </column>
-    <column id="83" parent="13" name="updated_at">
+    <column id="72" parent="11" name="created_at">
       <Position>3</Position>
       <DataType>DATETIME(0,-1)|12</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="84" parent="13" name="user_id">
+    <column id="73" parent="11" name="updated_at">
       <Position>4</Position>
-      <DataType>INTEGER(0,-1)|4</DataType>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="85" parent="13" name="link_id">
-      <Position>5</Position>
-      <DataType>INTEGER(0,-1)|4</DataType>
-    </column>
-    <index id="86" parent="13" name="index_user_links_on_user_id">
+    <index id="74" parent="11" name="index_user_feeds_on_user_id">
       <ColNames>user_id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="87" parent="13" name="index_user_links_on_link_id">
-      <ColNames>link_id</ColNames>
+    <index id="75" parent="11" name="index_user_feeds_on_feed_id">
+      <ColNames>feed_id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="88" parent="13">
+    <key id="76" parent="11">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="89" parent="14" name="id">
+    <column id="77" parent="12" name="id">
       <DataType>INTEGER(0,-1)|4</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="90" parent="14" name="email">
+    <column id="78" parent="12" name="content">
+      <Position>1</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+    </column>
+    <column id="79" parent="12" name="UserLink_id">
+      <Position>2</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+    </column>
+    <column id="80" parent="12" name="created_at">
+      <Position>3</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="81" parent="12" name="updated_at">
+      <Position>4</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="82" parent="12" name="index_user_link_notes_on_UserLink_id">
+      <ColNames>UserLink_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="83" parent="12">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="84" parent="13" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="85" parent="13" name="user_link_id">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+    </column>
+    <column id="86" parent="13" name="tag_id">
+      <Position>2</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+    </column>
+    <column id="87" parent="13" name="created_at">
+      <Position>3</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="88" parent="13" name="updated_at">
+      <Position>4</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="89" parent="13" name="index_user_link_tags_on_user_link_id">
+      <ColNames>user_link_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="90" parent="13" name="index_user_link_tags_on_tag_id">
+      <ColNames>tag_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="91" parent="13">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="92" parent="14" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="93" parent="14" name="category">
+      <Position>1</Position>
+      <DataType>VARCHAR(0,-1)|12</DataType>
+    </column>
+    <column id="94" parent="14" name="created_at">
+      <Position>2</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="95" parent="14" name="updated_at">
+      <Position>3</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="96" parent="14" name="user_id">
+      <Position>4</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+    </column>
+    <column id="97" parent="14" name="link_id">
+      <Position>5</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+    </column>
+    <index id="98" parent="14" name="index_user_links_on_user_id">
+      <ColNames>user_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="99" parent="14" name="index_user_links_on_link_id">
+      <ColNames>link_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="100" parent="14">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="101" parent="15" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="102" parent="15" name="email">
       <Position>1</Position>
       <DataType>VARCHAR(0,-1)|12</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
     </column>
-    <column id="91" parent="14" name="encrypted_password">
+    <column id="103" parent="15" name="encrypted_password">
       <Position>2</Position>
       <DataType>VARCHAR(0,-1)|12</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
     </column>
-    <column id="92" parent="14" name="reset_password_token">
+    <column id="104" parent="15" name="reset_password_token">
       <Position>3</Position>
       <DataType>VARCHAR(0,-1)|12</DataType>
     </column>
-    <column id="93" parent="14" name="reset_password_sent_at">
+    <column id="105" parent="15" name="reset_password_sent_at">
       <Position>4</Position>
       <DataType>DATETIME(0,-1)|12</DataType>
     </column>
-    <column id="94" parent="14" name="remember_created_at">
+    <column id="106" parent="15" name="remember_created_at">
       <Position>5</Position>
       <DataType>DATETIME(0,-1)|12</DataType>
     </column>
-    <column id="95" parent="14" name="sign_in_count">
+    <column id="107" parent="15" name="sign_in_count">
       <Position>6</Position>
       <DataType>INTEGER(0,-1)|4</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>0</DefaultExpression>
     </column>
-    <column id="96" parent="14" name="current_sign_in_at">
+    <column id="108" parent="15" name="current_sign_in_at">
       <Position>7</Position>
       <DataType>DATETIME(0,-1)|12</DataType>
     </column>
-    <column id="97" parent="14" name="last_sign_in_at">
+    <column id="109" parent="15" name="last_sign_in_at">
       <Position>8</Position>
       <DataType>DATETIME(0,-1)|12</DataType>
     </column>
-    <column id="98" parent="14" name="current_sign_in_ip">
+    <column id="110" parent="15" name="current_sign_in_ip">
       <Position>9</Position>
       <DataType>VARCHAR(0,-1)|12</DataType>
     </column>
-    <column id="99" parent="14" name="last_sign_in_ip">
+    <column id="111" parent="15" name="last_sign_in_ip">
       <Position>10</Position>
       <DataType>VARCHAR(0,-1)|12</DataType>
     </column>
-    <column id="100" parent="14" name="created_at">
+    <column id="112" parent="15" name="created_at">
       <Position>11</Position>
       <DataType>DATETIME(0,-1)|12</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="101" parent="14" name="updated_at">
+    <column id="113" parent="15" name="updated_at">
       <Position>12</Position>
       <DataType>DATETIME(0,-1)|12</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="102" parent="14" name="index_users_on_email">
+    <index id="114" parent="15" name="index_users_on_email">
       <ColNames>email</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="103" parent="14" name="index_users_on_reset_password_token">
+    <index id="115" parent="15" name="index_users_on_reset_password_token">
       <ColNames>reset_password_token</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="104" parent="14">
+    <key id="116" parent="15">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
