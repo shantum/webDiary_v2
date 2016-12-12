@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   # get '/user_links/edit/:id', to: 'user_links#edit', as: 'user_link_edit'
   get '/user_links/index', to: 'user_links#index'
   get '/user_links/create', to: 'user_links#new'
+  get '/user_feeds/create', to: 'user_feeds#new'
   get '/feeds', to: 'user_feeds#index'
   # get 'tags/:tag', to: 'articles#index', as: :tag
 

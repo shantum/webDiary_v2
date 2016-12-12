@@ -46,8 +46,11 @@ gem 'simple-rss'
 gem 'feedbag'
 
 gem 'bootstrap_tokenfield_rails'
+gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
 
 gem 'rails-html-sanitizer'
+
+gem 'whenever', :require => false
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

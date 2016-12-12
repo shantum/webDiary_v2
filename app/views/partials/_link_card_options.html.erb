@@ -1,0 +1,42 @@
+<div class="collapse" id="link-card-collapse">
+  <div class="card-footer text-muted link-card-footer">
+    <p class="card-text link-card-footer-text">
+        <span style="float: left">
+          <small class="text-muted">Source: <%= link_to user_link.link.group, 'http://' + user_link.link.group %> </small>
+        </span>
+      <span style="float: right">
+          <small class="text-muted ">Added <%= time_ago_in_words(user_link.created_at) %> ago</small>
+        </span>
+    </p>
+  </div> <%# link card grey footer area%>
+
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      <p class="card-text">
+        <small class="text-muted">Tags: <% user_link.all_tags.split(',').each do |tag| %><span class="tag tag-pill tag-default"><%= tag %></span><% end %></small>
+      </p>
+    </li> <%# tags %>
+
+    <li class="list-group-item">
+      <%= user_link.all_notes.content unless user_link.all_notes.nil? %>
+    </li>
+
+    <li class="list-group-item">
+      <%= link_to('Delete Entry', user_link_delete_url(user_link), method: :post, class: 'btn btn-outline-danger btn-sm list-inline-item') %>
+      <a class="btn btn-primary btn-sm" data-toggle="collapse" href="#add-tag-collapse" aria-expanded="false" aria-controls="collapseExample">Add Tags</a>
+      <a class="btn btn-primary btn-sm" data-toggle="collapse" href="#add-note-collapse" aria-expanded="false" aria-controls="collapseExample">Add a Note</a>
+      <% if user_feed_check(user_link)%>
+          <%= link_to('Add Feed', {controller: 'user_feeds', action: 'create', url: user_link.link.feed_url}, method: :post, class: 'btn btn-outline-primary btn-sm list-inline-tem') %>
+      <% end %>
+    </li>
+
+    <li class="list-group-item">
+      <div class="collapse add-note-collapse" id="add-tag-collapse">
+        <%= render 'partials/add_tag_form', user_link: user_link %>
+      </div>
+      <div class="collapse" id="add-note-collapse">
+        <%= render 'partials/add_note_form', user_link: user_link %>
+      </div>
+    </li>
+  </ul>
+</div>

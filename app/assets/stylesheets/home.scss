@@ -1,42 +1,6 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-#home-user-links-each {
-  border-style: solid;
-  margin-bottom: 5px;
-  margin-left: 1%;
-  padding: 5px;
-}
-
-.home-user-links-container {
-  margin: 0;
-  margin-left: 1%;
-  margin-right: 1%;
-  height: 100%;
-  width: 100%;
-  padding: 10px;
-}
-
-.feed-link-card {
-  width: 350px;
-}
-
-.feed-link-card-title {
-  text-align: justify;
-  width: 100%;
-}
-
-
-.user-recent-feed-div {
-  overflow-x: scroll;
-  position: absolute;
-  right:0px;
-}
-
-#home-user-links-each-title {
-  font-weight: bold;
-}
-
-.main-body-div {
-  height: 80vh;
+.ui.grid{
+  margin:0;
 }

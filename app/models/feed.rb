@@ -15,6 +15,13 @@ class Feed < ApplicationRecord
     latest_entries = latest_entries.first(5)
   end
 
+  def self.update_all
+    feeds = Feed.all
+    feeds.each do |feed|
+      feed.load_entries
+    end
+  end
+
   def load_entries
     feed_data = Feedjira::Feed.fetch_and_parse self.url
     feed_entries = feed_data.entries

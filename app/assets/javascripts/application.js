@@ -15,6 +15,7 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require bootstrap-tokenfield
+//= require semantic-ui
 //= require_tree ./sitewide
 //= require_tree .
 //require turbolinks

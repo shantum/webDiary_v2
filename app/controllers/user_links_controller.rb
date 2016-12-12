@@ -15,20 +15,6 @@ class UserLinksController < ApplicationController
     @link = Link.find_or_create_by!(url: @url)
 
     @user_link = UserLink.find_or_create_by!(user: current_user, link: @link)
-
-    # if Link.exists?(url: @url)  #check if link exists by url
-    #   @link = Link.find_by(url: @url) #if yes, then assign @link to such link
-    #   if UserLink.where(link: @link, user: current_user ).empty? #check if user_link with same link exists
-    #     @user_link = UserLink.create!(user: current_user, link: @link, category: 'un-defined!') #if not, create a new user_link
-    #   else
-    #     @user_link = UserLink.find_by(link: @link) #if yes, assign @user_link to such user_link
-    #   end
-    # else
-    #   @link = Link.create!(url: @url) #if link does not exist in the table, create a new link
-    #   @user_link = UserLink.create!(user: current_user, link: @link, category: 'un-defined!') #since link does not yet exist, user_link cannot exist either
-    # end # Non-duplication conditions
-
-    render :view
   end
 
   def edit

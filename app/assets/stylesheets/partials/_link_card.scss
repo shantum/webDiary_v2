@@ -1,30 +1,17 @@
-.card-media .card-thumbnail-media {
-  height: 75px;
-  width: 75px;
+.ui.cards > .card, .ui.card {
+  width: 330px;
+  margin-right: 5px;
 }
 
-.card.user-link-card-div {
-  max-width: 20vw;
-  margin-right: 1vw;
+.card {
+  width: 330px;
 }
 
-.card-title {
-  text-align: justify;
+.link-card-image {
+  width: 100%;
+  height: 185px;
 }
-
-.link-options-dropdown-div {
-  margin: 0;
-  padding: 0;
-}
-
-.link-card-description-text {
-  font-size: 85%;
-}
-
-.link-card-footer-text {
-  font-size: 85%;
-}
-
-.link-card-embedded-media {
-  margin-bottom: 3px;
-}
+ .user-link-card-div {
+   width: 300px;
+   margin: 5px;
+ }

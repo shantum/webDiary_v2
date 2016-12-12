@@ -1,11 +1,22 @@
-<div class="list-group">
-  <a href="<%= entry.url %>" class="list-group-item list-group-item-action">
-    <h6 class="list-group-item-heading"><%= entry.title %></h6>
-    <p class="card-text"><small class="text-muted">
-      <span>Published <%= time_ago_in_words(entry.published) %> ago</span>
-      <span>Source: <%= entry.host %></span>
-      <span>Author: <%= entry.author %></span>
-    </small></p>
-  </a>
+<div class="ui card">
+  <div class="content">
+    <i class="right floated like icon"></i>
+    <i class="right floated star icon"></i>
+      <div class="header"><%= link_to entry.title, entry.url %></div>
+    <div class="description">
+      <p>Published <%= time_ago_in_words(entry.published) %> ago</p>
+      <p><%= entry.host %></p>
+      <p>By: <%= entry.author %></p>
+    </div>
+  </div>
+  <div class="extra content">
+    <span class="left floated save">
+      <i class="save icon"></i>
+      Save
+    </span>
+    <span class="right floated star">
+      <i class="star icon"></i>
+      Favorite
+    </span>
+  </div>
 </div>
-

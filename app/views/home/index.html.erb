@@ -1,26 +1,18 @@
-<div class="container-fluid home-user-links-container">
-  <div class="row">
+<div class="ui grid">
+    <div class="twelve wide column">
+      <% if current_user_recent_links %>
+          <%= render 'partials/recent_entries'%>
+      <% end %> <%#recent links %>
+    </div>
 
-    <% if current_user_recent_links %>
-      <div class="col-xs-8 user-recent-links-div">
-        <%= render 'partials/recent_entries'%>
-      </div>
-    <% end %> <%#show recent links %>
-
-    <% if current_user_feeds %>
-      <div class="col-xs-4 user-recent-feed-div" id="user-recent-feed-div">
-        <h3>Latest Feed Posts:</h3>
-        <br>
-        <div class="card-deck-wrapper">
-          <div class="card-deck">
-            <% newest_feed_entries.each do |entry| %>
-                <%= render 'partials/rss_feed', entry: entry %>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    <% end %> <%#show recent feeds %>
-
-  </div>
+    <div class="four wide column">
+      <% if current_user_feeds %>
+          <h3>Latest Feed Posts:</h3>
+          <br>
+          <% newest_feed_entries.each do |entry| %>
+              <%= render 'partials/rss_feed', entry: entry %>
+          <% end %>
+      <% end %> <%#recent feeds %>
+    </div>
 </div>
 
