@@ -23,10 +23,20 @@
     </div>
   </div>
   <div class="extra content">
-    <span class="left floated like">
-      <i class="save icon"></i>
-      Save
-    </span>
+    <% if user_feed_check(user_link)%>
+      <span class="left floated icon">
+        <i class="add icon"></i>
+        <%= link_to('Add Feed', {controller: 'user_feeds', action: 'create', url: entry.url}, method: :post) %>
+      </span>
+    <% end %>
+
+    <% if user_feed_exists?(user_link)%>
+      <span class="left floated icon">
+        <i class="check icon"></i>
+        Feed Added!
+      </span>
+    <% end %>
+
     <span class="right floated star">
       <i class="star icon"></i>
       Favorite

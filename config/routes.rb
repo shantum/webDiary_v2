@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get '/user_links/index', to: 'user_links#index'
   get '/user_links/create', to: 'user_links#new'
   get '/user_feeds/create', to: 'user_feeds#new'
-  get '/feeds', to: 'user_feeds#index'
+  get '/user_feeds/index', to: 'user_feeds#index'
   # get 'tags/:tag', to: 'articles#index', as: :tag
 
   post '/user_links/create', to: 'user_links#create'

@@ -10,10 +10,17 @@
     </div>
   </div>
   <div class="extra content">
-    <span class="left floated save">
-      <i class="save icon"></i>
-      Save
-    </span>
+    <% if link_saved_by_user?(entry.url) %>
+       <span class="left floated check">
+          <i class="check icon"></i>
+            Saved!
+        </span>
+    <% else %>
+      <span class="left floated save">
+        <i class="save icon"></i>
+          <%= link_to('Save Post', {controller: 'user_links', action: 'create', url: entry.url}, method: :post) %>
+      </span>
+    <% end %>
     <span class="right floated star">
       <i class="star icon"></i>
       Favorite

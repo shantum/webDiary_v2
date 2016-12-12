@@ -1,3 +1,9 @@
 $(document).ready(function () {
+  $('span.left.floated.icon').mouseenter(function() {
+      $('span.left.floated.icon').css('color', 'red')
+  })
 
+  $('span.left.floated.icon').mouseleave(function() {
+      $('span.left.floated.icon').css('color', 'grey')
+  })
 });

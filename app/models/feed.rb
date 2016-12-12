@@ -10,9 +10,8 @@ class Feed < ApplicationRecord
   end
 
   def latest_entries
-    load_entries
     latest_entries = self.all_entries.sort_by { |e| e.published}
-    latest_entries = latest_entries.first(5)
+    latest_entries.first(5)
   end
 
   def self.update_all

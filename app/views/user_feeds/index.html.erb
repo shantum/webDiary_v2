@@ -1,5 +1,9 @@
-<% all_feed_entries.each do |entry| %>
-    <%= render 'partials/rss_feed', entry: entry %>
-<% end %>
+  <div class="sixteen wide column feeds-index-div">
+    <div class="row">
+      <% all_feed_entries.each do |entry| %>
+          <%= render 'partials/rss_feed', entry: entry %>
+      <% end %>
+    </div>
+  </div>
 
 

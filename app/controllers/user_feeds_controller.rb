@@ -1,25 +1,14 @@
 class UserFeedsController < ApplicationController
   before_action :authenticate_user!
 
-  def index
-    require 'open-uri'
-    @user_feeds = UserFeed.where(user_id: current_user.id)
-    @entries = []
-
-    @user_feeds.each do |user_feed|
-      feed_data = Feedjira::Feed.fetch_and_parse user_feed.feed.url
-      @entries.push(feed_data.entries)
-    end
-
-    return @entries
-  end
-
   def create
     @url = params[:url]
 
     @feed = Feed.find_or_create_by!(url: @url) unless @url.nil?
 
     @user_feed = UserFeed.find_or_create_by!(user_id: current_user.id, feed: @feed) unless @feed.nil?
+
+    redirect_to '/'
   end
 
   def load_feed(url)

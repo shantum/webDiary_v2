@@ -15,6 +15,8 @@ class UserLinksController < ApplicationController
     @link = Link.find_or_create_by!(url: @url)
 
     @user_link = UserLink.find_or_create_by!(user: current_user, link: @link)
+
+    redirect_to '/'
   end
 
   def edit

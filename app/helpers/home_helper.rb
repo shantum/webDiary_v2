@@ -15,9 +15,8 @@ module HomeHelper
   def all_feed_entries
     entries = []
 
-    if @user_feeds
+    if current_user_feeds
       current_user_feeds.each do |user_feed|
-        user_feed.feed.load_entries
         user_feed.feed.all_entries.each do |entry|
           entries.push(entry)
         end

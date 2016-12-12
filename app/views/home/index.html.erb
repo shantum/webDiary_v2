@@ -1,11 +1,11 @@
 <div class="ui grid">
-    <div class="twelve wide column">
+    <div class="twelve wide column user-recent-links">
       <% if current_user_recent_links %>
           <%= render 'partials/recent_entries'%>
       <% end %> <%#recent links %>
     </div>
 
-    <div class="four wide column">
+    <div class="four wide column user-latest-feeds">
       <% if current_user_feeds %>
           <h3>Latest Feed Posts:</h3>
           <br>

@@ -7,29 +7,15 @@
     </li>
 
     <li class="nav-item active">
-      <!--link for new-feed modal triggered through javascript-->
       <a class="nav-link nav-bar-new-feed" href="/user_feeds/create">Add new feed</a>
-      <!--modal body-->
-      <div class="modal fade nav-bar-new-feed-modal">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content nav-bar-new-link-modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-              <h4 class="modal-title">Add a new feed</h4>
-            </div>
-            <div class="modal-body">
-              <%= render 'partials/new_feed_form'%>
-            </div>
-
-          </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-      </div><!-- /.modal -->
     </li>
 
     <li class="nav-item">
       <a class="nav-link" href="/user_links/index">View all links</a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" href="/user_feeds/index">View all feeds</a>
     </li>
   </ul>
 
